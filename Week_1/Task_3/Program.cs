@@ -7,7 +7,7 @@ namespace Task_3
         public static void Main(string[] args)
         {
             string s = Console.ReadLine();
-            int n = int.Parse(s);
+            int n = int.Parse(s);//метод Parse() превращает из цифра символа в цифру числа
             string t = Console.ReadLine();
             string[] nums = t.Split();
 
