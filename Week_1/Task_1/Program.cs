@@ -4,7 +4,7 @@ namespace Task_1
 {
     class MainClass
     {
-        public static bool isPrime(int a)//a function that check is the element in array arr prime or not
+        public static bool IsPrime(int a)//a function that check is the element in array arr prime or not
         {
             if (a < 2) return false;
             if (a == 2) return true;
@@ -31,7 +31,7 @@ namespace Task_1
 
             for(int i=0; i < arr.Length; ++i)
             {
-                if (isPrime(arr[i]))//if our element come from the function with ture then we Write this element.
+                if (IsPrime(arr[i]))//if our element come from the function with ture then we Write this element.
                 {
                     Console.Write(arr[i] + " ");
                 }
