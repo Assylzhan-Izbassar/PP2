@@ -9,7 +9,7 @@ namespace Task_2
             public string Name, ID;
             public int year;
 
-            public Student()
+            public Student()//constructor
             {
             }
 
