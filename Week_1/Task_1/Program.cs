@@ -26,7 +26,7 @@ namespace Task_1
 
             for(int i=0; i < nums.Length; ++i)
             {
-                arr[i] = int.Parse(nums[i]);//изменить массив
+                arr[i] = int.Parse(nums[i]);
             }
 
             for(int i=0; i < arr.Length; ++i)
