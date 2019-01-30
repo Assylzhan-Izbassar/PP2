@@ -1,9 +1,9 @@
-﻿<Properties StartupConfiguration="{1B9AC0EB-FEF1-47BB-BB3E-D5B62F5FB4A3}|Default">
-  <MonoDevelop.Ide.ItemProperties.Task__2 FirstBuild="True" />
+﻿<Properties StartupConfiguration="{938608D1-33F3-46CF-B2F8-01C365F893B7}|Default">
+  <MonoDevelop.Ide.ItemProperties.Task__2 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Task__1 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Task_2/Program.cs">
     <Files>
-      <File FileName="Task_2/Program.cs" Line="7" Column="10" />
+      <File FileName="Task_2/Program.cs" Line="34" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

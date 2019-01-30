@@ -19,19 +19,31 @@ namespace Task_2
                 ID = id;
             }
 
-            public void Print()
-            {
-                Console.WriteLine(Name + " " + ID + " " + (++year));
-            }
         };
         public static void Main(string[] args)
         {
-            Student s = new Student("Assylzhan", "18BD")
+            Student s = new Student(GetName(), GetID())
             {
-                year = Convert.ToInt32(Console.ReadLine())
+                year = GetYear()
             };
 
-            s.Print();
+            Console.WriteLine(s.Name + "" + s.ID + " " + (++s.year));
+
+        }
+        static string GetName()
+        {
+            string t = Console.ReadLine();
+            return t;
+        }
+        static string GetID()
+        {
+            string id = Console.ReadLine();
+            return id;
+        }
+        static int GetYear()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            return n;
         }
     }
 }
