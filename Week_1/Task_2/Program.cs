@@ -2,47 +2,47 @@
 
 namespace Task_2
 {
+    class Student
+    {
+        public string Name, ID;
+        public int year;
+
+        public Student(string n, string id)//we create pramethric constructor
+        {
+            Name = n;
+            ID = id;
+        }
+
+    }
+
     class MainClass
     {
-        class Student
-        {
-            public string Name, ID;
-            public int year;
-
-            //public Student()//constructor
-            //{
-            //}
-
-            public Student(string n, string id,int y)//constructor
-            {
-                Name = n;
-                ID = id;
-                year = y;
-            }
-
-        };
-
         public static void Main(string[] args)
         {
-            Student s = new Student(GetName(), GetID(), IncrementYear());
-
-            Console.WriteLine(s.Name + " " + s.ID + " " + (s.year));
-
-        }
-        static string GetName()
-        {
             string t = Console.ReadLine();
-            return t;
+            string[] student = t.Split();
+
+            Student s = new Student(student[0], student[1])
+            {
+                year = int.Parse(student[2])
+            };
+
+            GetName(s.Name);
+            GetID(s.ID);
+            IncrementYear(s.year);
+
         }
-        static string GetID()
+        static void GetName(string n)
         {
-            string id = Console.ReadLine();
-            return id;
+            Console.Write(n + " ");
         }
-        static int IncrementYear()
+        static void GetID(string id)
         {
-            int n = Convert.ToInt32(Console.ReadLine());
-            return (++n);
+            Console.Write(id + " ");
+        }
+        static void IncrementYear(int y)
+        {
+            Console.Write(++y + " ");
         }
     }
 }
