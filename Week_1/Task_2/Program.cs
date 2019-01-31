@@ -9,25 +9,24 @@ namespace Task_2
             public string Name, ID;
             public int year;
 
-            public Student()//constructor
-            {
-            }
+            //public Student()//constructor
+            //{
+            //}
 
-            public Student(string n, string id)
+            public Student(string n, string id,int y)//constructor
             {
                 Name = n;
                 ID = id;
+                year = y;
             }
 
         };
+
         public static void Main(string[] args)
         {
-            Student s = new Student(GetName(), GetID())
-            {
-                year = GetYear()
-            };
+            Student s = new Student(GetName(), GetID(), IncrementYear());
 
-            Console.WriteLine(s.Name + "" + s.ID + " " + (++s.year));
+            Console.WriteLine(s.Name + " " + s.ID + " " + (s.year));
 
         }
         static string GetName()
@@ -40,10 +39,10 @@ namespace Task_2
             string id = Console.ReadLine();
             return id;
         }
-        static int GetYear()
+        static int IncrementYear()
         {
             int n = Convert.ToInt32(Console.ReadLine());
-            return n;
+            return (++n);
         }
     }
 }
