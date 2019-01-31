@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Task_2
 {
@@ -7,10 +11,15 @@ namespace Task_2
         public string Name, ID;
         public int year;
 
-        public Student(string n, string id)//we create pramethric constructor
+        //public Student(string n, string id)//we create pramethric constructor
+        //{
+        //    Name = n;
+        //    ID = id;
+        //}
+        public Student(string Name, string ID)
         {
-            Name = n;
-            ID = id;
+            this.Name = Name;
+            this.ID = ID;
         }
 
     }
