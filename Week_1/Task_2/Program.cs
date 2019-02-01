@@ -6,21 +6,35 @@ using System.Threading.Tasks;
 
 namespace Task_2
 {
-    class Student
+    class Student//I create a class Student
     {
         public string Name, ID;
         public int year;
 
-        //public Student(string n, string id)//we create pramethric constructor
+        //public Student(string Name, string ID)//I create pramethric constructor
         //{
-        //    Name = n;
-        //    ID = id;
+        //    this.Name = Name;//method "this" works like pointer, which save the address of the type string ot etc. 
+        //    this.ID = ID;
         //}
-        public Student(string Name, string ID)
+        public Student(string n, string id)
         {
-            this.Name = Name;
-            this.ID = ID;
+            Name = n;
+            ID = id;
         }
+
+        public string GetName()
+        {
+            return Name;
+        }
+        public string GetID()
+        {
+            return ID;
+        }
+        public int GetYear()
+        { 
+            return ++year;
+        }
+
 
     }
 
@@ -28,28 +42,33 @@ namespace Task_2
     {
         public static void Main(string[] args)
         {
-            string t = Console.ReadLine();
-            string[] student = t.Split();
+            string t = Console.ReadLine();//input the name,id,and year
+            string[] student = t.Split();//clean the spaces in string t
 
             Student s = new Student(student[0], student[1])
             {
                 year = int.Parse(student[2])
             };
+            //Student s2 = new Student("Assylzhan", "18BD");
 
-            GetName(s.Name);
-            GetID(s.ID);
-            IncrementYear(s.year);
+            Console.Write(s.GetName() + " " + s.GetID() + " " + s.GetYear());
+
+            //s2.year = Convert.ToInt32(Console.ReadLine());
+            //Console.Write(s2.getName() + " " + s2.getID() + " " + s2.GetYear());
+            //GetName(s.Name);
+            //GetID(s.ID);
+            //IncrementYear(s.year);
 
         }
-        static void GetName(string n)
+        static void GetName(string n)//method to output the name
         {
             Console.Write(n + " ");
         }
-        static void GetID(string id)
+        static void GetID(string id)//method to output the ID
         {
             Console.Write(id + " ");
         }
-        static void IncrementYear(int y)
+        static void IncrementYear(int y)//method to output the increment of the year of study
         {
             Console.Write(++y + " ");
         }
