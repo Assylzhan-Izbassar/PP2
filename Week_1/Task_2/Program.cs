@@ -34,8 +34,6 @@ namespace Task_2
         { 
             return ++year;
         }
-
-
     }
 
     class MainClass
@@ -55,9 +53,10 @@ namespace Task_2
 
             //s2.year = Convert.ToInt32(Console.ReadLine());
             //Console.Write(s2.getName() + " " + s2.getID() + " " + s2.GetYear());
-            //GetName(s.Name);
-            //GetID(s.ID);
-            //IncrementYear(s.year);
+            
+            //GetName(s.Name); //call method
+            //GetID(s.ID); //call method
+            //IncrementYear(s.year); //call method
 
         }
         static void GetName(string n)//method to output the name
