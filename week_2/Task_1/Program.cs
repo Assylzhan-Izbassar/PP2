@@ -12,7 +12,6 @@ namespace Task_1
             //text.Trim();
 
             string check = Polin(text);
-            Console.WriteLine(text);
 
             if(CheckToPolin(text, check)) 
             {
