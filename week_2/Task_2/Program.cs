@@ -33,8 +33,11 @@ namespace Task_2
         public static void Main(string[] args)
         {
             string PathofFile = @"/Users/macbook/Desktop/PP2/Projects/MyFile.txt";
-            string Numbers = File.ReadAllText(PathofFile);
-            string[] nums = Numbers.Split(' ');
+            StreamReader sr = new StreamReader(PathofFile);
+            string numbers = sr.ReadToEnd();
+            sr.Close();
+            //string Numbers = File.ReadAllText(PathofFile);
+            string[] nums = numbers.Split(' ');
              
             bool res = false;
 
