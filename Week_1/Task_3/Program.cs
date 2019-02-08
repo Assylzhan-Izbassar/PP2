@@ -1,13 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task_3
 {
     class MainClass
     {
+        public static int[] DoubleArray(int[] arr)
+        {
+            int[] a = new int[2 * arr.Length];
+            for(int i=0; i < arr.Length; ++i)
+            {
+                a[2*i] = a[2*i + 1] = arr[i];
+            }
+            return a;
+        }
         public static void Main(string[] args)
         {
             string s = Console.ReadLine();
@@ -16,17 +21,16 @@ namespace Task_3
             string[] nums = t.Split();
 
             int[] arr = new int[n];
-            int[] arr2 = new int[n];
 
-            for(int i=0; i < nums.Length; ++i)
+            for (int i = 0; i < nums.Length; ++i)
             {
                 arr[i] = int.Parse(nums[i]);
-                arr2[i] = int.Parse(nums[i]);
             }
+            int[] arr2 = DoubleArray(arr);
 
-            for(int i=0; i < arr.Length; ++i)
+            for (int i = 0; i < arr2.Length; ++i)
             {
-                Console.Write(arr[i] + " " + arr2[i] + " ");
+                Console.Write(arr2[i] + " ");
             }
         }
     }
