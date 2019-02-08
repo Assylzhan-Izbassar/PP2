@@ -62,7 +62,7 @@ namespace Task_2
             }
             else
             {
-                write.Write("Sorry, there was not prime mumbers");
+                write.Write("Sorry, there was not prime mumbers!");
                 write.Close();
                 fs.Close();
             }
