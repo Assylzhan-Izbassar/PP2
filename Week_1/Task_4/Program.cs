@@ -6,17 +6,32 @@ namespace Task_4
     {
         public static void Main(string[] args)
         {
+
             string s = Console.ReadLine();
             int n = int.Parse(s);
-
-            for(uint i=1; i <= n; ++i)
+            string[,] str = Getstr(n);
+    
+            for(uint i=0; i < n; ++i)
             {
-                for(uint j=1; j <= i; ++j)
+                for(uint j=0; j <=i; ++j)
                 {
-                    Console.Write("[*]");
+                    Console.Write(str[i, j]);
                 }
                 Console.WriteLine();
             }
+        }
+
+        private static string[,] Getstr(int n)
+        {
+            string[,] result = new string[n, n];
+            for(int i=0; i < n; ++i)
+            {
+                for(int j=0; j < n; ++j)
+                {
+                    result[i, j] = "[*]";
+                }
+            }
+            return result;
         }
     }
 }
