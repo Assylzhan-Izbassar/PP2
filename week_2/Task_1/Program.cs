@@ -5,30 +5,27 @@ namespace Task_1
 {
     class MainClass
     {
-        public static bool IsPolin(string s,int n)
-        {
-            if (n == s.Length / 2) return true;
-            else
-            {
-                if (s[n] != s[s.Length - n - 1]) return false;
-                return IsPolin(s, n + 1);
-            }
-        }
         public static void Main(string[] args)
         {
-            string pathOfFile = @"/Users/macbook/Desktop/PP2/Projects/MyFile.txt";
-            string text = File.ReadAllText(pathOfFile);
-            //text.Trim();
+            string pathOfFile = @"/Users/macbook/Desktop/MyFile.txt";
+            if (!File.Exists(pathOfFile))
+            {
+                File.Create(pathOfFile);
+            }
+            StreamWriter sw = new StreamWriter(pathOfFile);
 
+            sw.WriteLine(Console.ReadLine());
+            sw.Close();
+            
+            string text = File.ReadAllText(pathOfFile);
             string check = Polin(text);
 
-            if(IsPolin(text, 0)) 
-            {
-                Console.Write("YES\n");
+            if (CheckToPolin(text, check)){
+                Console.WriteLine("YES\n");
             }
             else
             {
-                Console.Write("NO\n");
+                Console.WriteLine("NO\n");
             }
 
         }

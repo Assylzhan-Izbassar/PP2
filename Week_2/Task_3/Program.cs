@@ -14,12 +14,10 @@ namespace Task_3
             if(fs is DirectoryInfo)
             {
                 var items = (fs as DirectoryInfo).GetFileSystemInfos();
-
                 foreach(var i in items)
                 {
                     PrintInfo(i, n + 4);
                 }
-
             }
         }
         public static void Main(string[] args)
