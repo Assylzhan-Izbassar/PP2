@@ -132,15 +132,19 @@ namespace Task_1
                     case ConsoleKey.E:
                         int x3 = history.Peek().SelectedItem;
                         FileSystemInfo fileSystemInfo3 = history.Peek().Content[x3];
-                        if(fileSystemInfo3 is DirectoryInfo)
+                        if (fileSystemInfo3 is DirectoryInfo)
                         {
                             DirectoryInfo dir11 = fileSystemInfo3 as DirectoryInfo;
-                            dir11.MoveTo(dir11.FullName + "\\" + Console.ReadLine());
+                            Directory.Move(dir11.FullName, dir11.Parent.FullName + "\\" + Console.ReadLine());
+                            history.Peek().Content = dir11.Parent.GetFileSystemInfos();
+
                         }
                         else
                         {
-                            FileInfo fi11= fileSystemInfo3 as FileInfo;
-                            fi11.MoveTo(fi11.Directory.FullName + "\\" + Console.ReadLine()+".pdf");
+                            FileInfo fi11 = fileSystemInfo3 as FileInfo;
+                            File.Move(fi11.FullName, fi11.Directory.FullName + "\\" + Console.ReadLine());
+                            //fi11.MoveTo(fi11.Directory.FullName + "\\" + Console.ReadLine() + ".pdf");
+                            history.Peek().Content = fi11.Directory.GetFileSystemInfos();
                         }
                         break;
                 }
