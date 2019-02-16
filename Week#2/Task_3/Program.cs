@@ -5,16 +5,16 @@ namespace Task_3
 {
     class MainClass
     {
-        public static void PrintInfo(FileSystemInfo fs, int n)
+        public static void PrintInfo(FileSystemInfo fs,int n)
         {
-            string line = new string(' ', n);
-            line = line + fs.Name;
-            Console.WriteLine(line);
+            string l = new string(' ', n);
+            l = l + fs.Name;
+            Console.WriteLine(l);
 
             if(fs is DirectoryInfo)
             {
-                var items = (fs as DirectoryInfo).GetFileSystemInfos();
-                foreach(var i in items)
+                var item = (fs as DirectoryInfo).GetFileSystemInfos();
+                foreach(var i in item)
                 {
                     PrintInfo(i, n + 4);
                 }

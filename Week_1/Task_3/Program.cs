@@ -4,14 +4,14 @@ namespace Task_3
 {
     class MainClass
     {
-        public static int[] DoubleArray(int[] arr)//Метод принимающий массив и удваивает его каждый элемент и пишет на другой массив.
+        public static int[] DoubleArray(int[] a)
         {
-            int[] res = new int[2 * arr.Length];//Создаем новый массив res, у которого длина 2 раза больше чем длина нынешнего массива.
-            for(int i=0; i < arr.Length; ++i)
+            int[] arr = new int[2 * a.Length];
+            for(int i=0; i < a.Length; ++i)
             {
-                res[2*i] = res[2*i + 1] = arr[i];//Приравневаем i элементам массива res, значение i-го элемента из массива arr.
+                arr[2 * i] = arr[2 * i + 1] = a[i]; 
             }
-            return res;//Возвращаем массив res.
+            return arr;
         }
         public static void Main(string[] args)
         {

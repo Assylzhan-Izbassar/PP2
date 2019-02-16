@@ -11,11 +11,11 @@ namespace Task_2
         public string Name, ID;
         public int year;
 
-        //public Student(string Name, string ID)//I create pramethric constructor
+        /*public Student(string Name, string ID)//I create pramethric constructor
         //{
         //    this.Name = Name;//method "this" works like pointer, which save the address of the type string ot etc. 
         //    this.ID = ID;
-        //}
+        }*/
         public Student(string n, string id)
         {
             Name = n;
@@ -51,12 +51,12 @@ namespace Task_2
 
             Console.Write(s.GetName() + " " + s.GetID() + " " + s.GetYear());
 
-            //s2.year = Convert.ToInt32(Console.ReadLine());
-            //Console.Write(s2.getName() + " " + s2.getID() + " " + s2.GetYear());
+            /*s2.year = Convert.ToInt32(Console.ReadLine());
+            Console.Write(s2.getName() + " " + s2.getID() + " " + s2.GetYear());
             
-            //GetName(s.Name); //call method
-            //GetID(s.ID); //call method
-            //IncrementYear(s.year); //call method
+            GetName(s.Name); //call method
+            GetID(s.ID); //call method
+            IncrementYear(s.year); //call method*/
 
         }
         static void GetName(string n)//method to output the name
