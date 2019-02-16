@@ -61,14 +61,15 @@ namespace Task_1
             FarMode farMode = FarMode.DirectoryView;
 
             history.Push(new Window { Content = root.GetFileSystemInfos(), SelectedItem = 0 });
-
+            ConsoleKeyInfo consoleKeyInfo;
             while (true)
             {
                 if(farMode == FarMode.DirectoryView)
                 {
                     history.Peek().Draw();
                 }
-                ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
+                consoleKeyInfo = Console.ReadKey();
+                if (consoleKeyInfo.Key == ConsoleKey.Escape) break;
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.UpArrow:
@@ -127,6 +128,20 @@ namespace Task_1
                             history.Peek().Content = fi.Directory.GetFileSystemInfos();
                         }
                         history.Peek().SelectedItem--;
+                        break;
+                    case ConsoleKey.E:
+                        int x3 = history.Peek().SelectedItem;
+                        FileSystemInfo fileSystemInfo3 = history.Peek().Content[x3];
+                        if(fileSystemInfo3 is DirectoryInfo)
+                        {
+                            DirectoryInfo dir11 = fileSystemInfo3 as DirectoryInfo;
+                            dir11.MoveTo(dir11.FullName + "\\" + Console.ReadLine());
+                        }
+                        else
+                        {
+                            FileInfo fi11= fileSystemInfo3 as FileInfo;
+                            fi11.MoveTo(fi11.Directory.FullName + "\\" + Console.ReadLine()+".pdf");
+                        }
                         break;
                 }
             }
