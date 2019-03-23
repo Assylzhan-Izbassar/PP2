@@ -11,8 +11,8 @@ namespace Task_1
         int x, y;
         int Filter_x_axis(int v)
         {
-            if (v > 79) v = 0;
-            if (v < 0) v = 78;
+            if (v > Console.WindowWidth-1) v = 0;
+            if (v < 0) v = Console.WindowHeight-1;
             return v;
         }
         int Filter_y_axis(int v)

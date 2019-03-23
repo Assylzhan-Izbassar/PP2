@@ -6,37 +6,38 @@ using System.Threading.Tasks;
 
 namespace Task_1
 {
-    class Apple:GameObject
+    class Apple : GameObject
     {
         public Apple(char sign) : base(sign)
         {
             Generate();
         }
-
+      
         public void Generate()
         {
             list.Clear();
-            
+
             Random random = new Random(DateTime.Now.Second);
             Point p = new Point
             {
-                X = random.Next(0, 78),
-                Y = random.Next(0, 30)
+                X = random.Next(0, Console.WindowWidth - 4),
+                Y = random.Next(0, Console.WindowHeight-10)
             };
-            while (!GoodPoint(p))
+            while (GoodPoint(p) != true)
             {
                 p = new Point
                 {
-                    X = random.Next(0, 78),
-                    Y = random.Next(0, 33)
+                    X = random.Next(0, Console.WindowWidth-4),
+                    Y = random.Next(0, Console.WindowHeight-3)
                 };
             }
             list.Add(p);
         }
 
-        private bool GoodPoint(Point p)
+        public bool GoodPoint(Point p)
         {
-            return true;
+            bool res = true;
+            return res;
         }
         public void Draw()
         {

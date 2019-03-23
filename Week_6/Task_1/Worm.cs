@@ -8,14 +8,19 @@ namespace Task_1
 {
     class Worm:GameObject
     {
+        public void GenerateWorm(int k)
+        {
+            for(int i=0; i < k; ++i)
+            {
+                list.Add(new Point { X = 40 + i, Y = 17 });
+            }
+        }
         public Worm(char sign) : base(sign)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            list.Add(new Point { X = 40, Y = 17 });
-            list.Add(new Point { X = 41, Y = 17 });
-            list.Add(new Point { X = 42, Y = 17 });
+            GenerateWorm(3);
         }
-        public void Move(int dx,int dy)
+        public void Move(int dx, int dy)
         {
             Clear();
             for (int i = list.Count - 1; i > 0; --i)
@@ -25,7 +30,9 @@ namespace Task_1
             }
             list[0].X += dx;
             list[0].Y += dy;
+
         }
+        
         public void Draw()
         {
             foreach (Point p in list)
