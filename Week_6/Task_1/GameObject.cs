@@ -10,6 +10,7 @@ namespace Task_1
     {
         public List<Point> list = new List<Point>();
         protected char sign;
+        
         public GameObject(char sign)
         {
             this.sign = sign;

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Task_1
 {
@@ -36,21 +38,39 @@ namespace Task_1
         {
             GameStart();
             GameState game = new GameState();
-        
-            while (true)
+
+            bool res = true;
+            while (res)
             {
                 game.Draw();
+                
                 ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
+                if (consoleKeyInfo.Key == ConsoleKey.Escape)
+                {
+                    string path = @"C:\Users\Brother\Desktop\Test\YourScore.txt";
+                    Serialize(path, game);
+                    res = false;
+                    //Environment.Exit(0);
+                }
                 game.PressedKey(consoleKeyInfo);
 
-                if (game.CheckCollision() == false) break; 
-                    //Environment.Exit(0);
+                if (game.CheckCollision() == false) res = false;
+                //Environment.Exit(0);
             }
 
             Console.Clear();
             Console.SetCursorPosition(20, 17);
             Console.WriteLine("GAME OVER!");
             Console.SetCursorPosition(20, 18);
+        }
+
+        public static void Serialize(string path, GameState game)
+        {
+            using (FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(int));
+                xs.Serialize(fs, game.count);
+            }
         }
     }
 }

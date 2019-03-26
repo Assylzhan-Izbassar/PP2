@@ -22,19 +22,35 @@ namespace Task_1
         }
         public void Move(int dx, int dy)
         {
+            int n = dx, m = dy;
             Clear();
+            if (dx == 0)
+            {
+                if (dy < 0)
+                    dy += 1;
+                else
+                    dy -= 1;
+            }
+            else if (dy == 0)
+            {
+                if (dx < 0)
+                    dx += 1;
+                else
+                    dx -= 1;
+            }
             for (int i = list.Count - 1; i > 0; --i)
             {
-                list[i].X = list[i - 1].X;
-                list[i].Y = list[i - 1].Y;
+                list[i].X = list[i - 1].X;//+ dx;
+                list[i].Y = list[i - 1].Y; //+ dy;
             }
-            list[0].X += dx;
-            list[0].Y += dy;
+            list[0].X += n;
+            list[0].Y += m;
 
         }
         
         public void Draw()
         {
+            //list.Clear();
             foreach (Point p in list)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -46,14 +62,26 @@ namespace Task_1
         {
             bool res = false;
 
-            foreach(Point p in apple)
+            foreach(Point point in list)
             {
-                if(list[0].X == p.X && list[0].Y == p.Y)
+                foreach(Point p in apple)
                 {
-                    res = true;
-                    break;
+                    if (point.X == p.X && point.Y == p.Y)
+                    {
+                        res = true;
+                        break;
+                    }
                 }
+                return res;
             }
+            //foreach(Point p in apple)
+            //{
+            //  if(list[0].X == p.X && list[0].Y == p.Y)
+            //    {
+            //        res = true;
+            //        break;
+            //    }
+            //}
             return res;
         }
         public void Eat(List<Point> foodbody)

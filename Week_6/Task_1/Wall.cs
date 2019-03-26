@@ -13,13 +13,13 @@ namespace Task_1
         Level_2,
         Level_3
     }
+
     class Wall:GameObject
     {
         public Wall(char sign) : base(sign)
         {
             LoadLevel(0);
         }
-
         Level Level = Level.Level_1;
         public void LoadLevel(int count)
         {

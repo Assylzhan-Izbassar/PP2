@@ -12,7 +12,26 @@ namespace Task_1
         {
             Generate();
         }
-      
+
+        List<Point> worm = new List<Point>();
+        public void InputWorm(Worm anotherWorm)
+        {
+            worm.Clear();
+            for(int i=0; i < anotherWorm.list.Count; ++i)
+            {
+                worm.Add(new Point { X = anotherWorm.list[i].X, Y = anotherWorm.list[i].Y });
+            }
+        }
+        List<Point> wall = new List<Point>();
+        public void InputWall(Wall anotherWall)
+        {
+            wall.Clear();
+            for (int i = 0; i < anotherWall.list.Count; ++i)
+            {
+                wall.Add(new Point { X = anotherWall.list[i].X, Y = anotherWall.list[i].Y });
+            }
+        }
+
         public void Generate()
         {
             list.Clear();
@@ -23,7 +42,7 @@ namespace Task_1
                 X = random.Next(0, Console.WindowWidth - 4),
                 Y = random.Next(0, Console.WindowHeight-10)
             };
-            while (GoodPoint(p) != true)
+            while (!GoodPoint(p))
             {
                 p = new Point
                 {
@@ -37,6 +56,16 @@ namespace Task_1
         public bool GoodPoint(Point p)
         {
             bool res = true;
+            for(int i=0; i < wall.Count; ++i)
+            {
+                if (p.X == wall[i].X && p.Y == wall[i].Y) return false;
+                else res = true;
+            }
+            for (int i = 0; i < worm.Count; ++i)
+            {
+                if (p.X == worm[i].X && p.Y == worm[i].Y) return false;
+                else res = true;
+            }
             return res;
         }
         public void Draw()

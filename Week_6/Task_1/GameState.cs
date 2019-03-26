@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Task_1
-{
+{ 
     class GameState
     {
         Worm worm = new Worm('o');
         Apple apple = new Apple('*');
         Wall wall = new Wall('#');
-        int count = 0;
+        public int count = 0;
 
-        Direction direction = Direction.None;
+        Direction direction = Direction.LeftArrow;
 
         public GameState()
         {
@@ -21,10 +21,12 @@ namespace Task_1
             Console.SetWindowSize(80, 35);
             Console.SetBufferSize(80, 35);
             wall.Draw();
+            apple.InputWall(wall);
         }
         public void PressedKey(ConsoleKeyInfo consoleKeyInfo)
         {
             Add_Tail();
+            
             switch (consoleKeyInfo.Key)
             {
                 case ConsoleKey.UpArrow:
@@ -35,7 +37,7 @@ namespace Task_1
                     else
                     {
                         direction = Direction.UpArrow;
-                        worm.Move(0, -1);
+                        worm.Move(0, -3);
                     }
                     break;
                 case ConsoleKey.DownArrow:
@@ -46,7 +48,7 @@ namespace Task_1
                     else
                     {
                         direction = Direction.DownArrow;
-                        worm.Move(0, 1);
+                        worm.Move(0, 3);
                     }
                     break;
                 case ConsoleKey.LeftArrow:
@@ -57,7 +59,7 @@ namespace Task_1
                     else
                     {
                         direction = Direction.LeftArrow;
-                        worm.Move(-1, 0);
+                        worm.Move(-3, 0);
                     }
                     break;
                 case ConsoleKey.RightArrow:
@@ -68,12 +70,13 @@ namespace Task_1
                     else
                     {
                         direction = Direction.RightArrow;
-                        worm.Move(1, 0);
+                        worm.Move(3, 0);
                     }
                     break;
             }
             CheckCollision();
         }
+        
         public List<Point> Tail = new List<Point>();
 
         protected void Add_Tail()
@@ -92,8 +95,10 @@ namespace Task_1
             if (count == 41) count = count - 1;
             if (count == 30 || count == 50) 
             {
+                direction = Direction.LeftArrow;
                 int k = worm.list.Count;
                 worm.list.Clear();
+                worm.Clear();
                 worm.GenerateWorm(k);
                 wall.LoadLevel(count);
                 wall.Draw();
@@ -107,6 +112,7 @@ namespace Task_1
             {
                 worm.Eat(apple.list);
                 count += 10;
+                apple.InputWall(wall);
                 apple.Generate();
             }
             if (worm.CheckIntersection(wall.list))
@@ -117,6 +123,7 @@ namespace Task_1
             {
                 res = false;
             }
+            apple.InputWorm(worm);
             return res;
         }
         private void Score()
@@ -125,6 +132,7 @@ namespace Task_1
             Console.SetCursorPosition(2, 32);
             Console.WriteLine("Your score: " + count);
         }
+
 
     }
 }
