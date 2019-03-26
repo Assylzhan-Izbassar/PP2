@@ -27,21 +27,23 @@ namespace Task_1
             Console.SetCursorPosition(20, 20);
             Console.WriteLine("Please, write your name!\n");
             Console.SetCursorPosition(20, 21);
-            string Name = Console.ReadLine();
-            Console.Clear();
-            Console.SetCursorPosition(2, 33);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Your nickname: " + Name);
+            
         }
 
         static void Main(string[] args)
         {
             GameStart();
+            string Name = Console.ReadLine();
+            Console.Clear();
+            
             GameState game = new GameState();
 
             bool res = true;
             while (res)
             {
+                Console.SetCursorPosition(2, 33);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Your nickname: " + Name);
                 game.Draw();
                 
                 ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
@@ -60,8 +62,10 @@ namespace Task_1
 
             Console.Clear();
             Console.SetCursorPosition(20, 17);
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("GAME OVER!");
             Console.SetCursorPosition(20, 18);
+            Console.ForegroundColor = ConsoleColor.Green;
         }
 
         public static void Serialize(string path, GameState game)

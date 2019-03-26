@@ -37,7 +37,7 @@ namespace Task_1
                     else
                     {
                         direction = Direction.UpArrow;
-                        worm.Move(0, -3);
+                        worm.Move(0, -1);
                     }
                     break;
                 case ConsoleKey.DownArrow:
@@ -48,7 +48,7 @@ namespace Task_1
                     else
                     {
                         direction = Direction.DownArrow;
-                        worm.Move(0, 3);
+                        worm.Move(0, 1);
                     }
                     break;
                 case ConsoleKey.LeftArrow:
@@ -59,7 +59,7 @@ namespace Task_1
                     else
                     {
                         direction = Direction.LeftArrow;
-                        worm.Move(-3, 0);
+                        worm.Move(-1, 0);
                     }
                     break;
                 case ConsoleKey.RightArrow:
@@ -70,7 +70,7 @@ namespace Task_1
                     else
                     {
                         direction = Direction.RightArrow;
-                        worm.Move(3, 0);
+                        worm.Move(1, 0);
                     }
                     break;
             }
@@ -92,7 +92,10 @@ namespace Task_1
             worm.Draw();
             apple.Draw();
             Score();
-            if (count == 41) count = count - 1;
+            if (count == 41 || count == 61)
+            {
+                count = count - 1;
+            }
             if (count == 30 || count == 50) 
             {
                 direction = Direction.LeftArrow;
@@ -104,6 +107,7 @@ namespace Task_1
                 wall.Draw();
                 count += 1;
             }
+            
         }
         public bool CheckCollision()
         {
