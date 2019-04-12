@@ -22,6 +22,7 @@ namespace Task_1
             Console.SetBufferSize(80, 35);
             wall.Draw();
             apple.InputWall(wall);
+
         }
         public void PressedKey(ConsoleKeyInfo consoleKeyInfo)
         {

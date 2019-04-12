@@ -8,33 +8,12 @@ namespace Task_1
 {
     class Apple : GameObject
     {
-
-        List<Point> worm = new List<Point>();
-        public void InputWorm(Worm anotherWorm)
-        {
-            worm.Clear();
-            for (int i = 0; i < anotherWorm.list.Count; ++i)
-            {
-                worm.Add(new Point { X = anotherWorm.list[i].X, Y = anotherWorm.list[i].Y });
-            }
-        }
-
-        List<Point> wall = new List<Point>();
-        public void InputWall(Wall anotherWall)
-        {
-            wall.Clear();
-            for (int i = 0; i < anotherWall.list.Count; ++i)
-            {
-                wall.Add(new Point { X = anotherWall.list[i].X, Y = anotherWall.list[i].Y });
-            }
-        }
-
         public Apple(char sign) : base(sign)
         {
-            Generate();
+            
         }
 
-        public void Generate()
+        public void Generate(List<Point> worm, List<Point> wall)
         {
             list.Clear();
 
@@ -44,7 +23,7 @@ namespace Task_1
                 X = random.Next(0, Console.WindowWidth - 4),
                 Y = random.Next(0, Console.WindowHeight-10)
             };
-            while (!GoodPoint(p))
+            while (!GoodPoint(p, worm) || !GoodPoint(p, wall))
             {
                 p = new Point
                 {
@@ -55,17 +34,12 @@ namespace Task_1
             list.Add(p);
         }
 
-        public bool GoodPoint(Point p)
+        public bool GoodPoint(Point p,List<Point> Input)
         {
             bool res = true;
-            for(int i=0; i < wall.Count; ++i)
+            for(int i=0; i < Input.Count; ++i)
             {
-                if (p.X == wall[i].X && p.Y == wall[i].Y) return false;
-                else res = true;
-            }
-            for (int i = 0; i < worm.Count; ++i)
-            {
-                if (p.X == worm[i].X && p.Y == worm[i].Y) return false;
+                if (p.X == Input[i].X && p.Y == Input[i].Y) return false;
                 else res = true;
             }
             return res;

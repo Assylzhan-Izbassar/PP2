@@ -8,6 +8,17 @@ namespace Task_1
 {
     class Worm:GameObject
     {
+        public int Dx
+        {
+            get;
+            set;
+        }
+        public int Dy
+        {
+            get;
+            set;
+        }
+
         public void GenerateWorm(int k)
         {
             for(int i=0; i < k; ++i)
@@ -19,6 +30,20 @@ namespace Task_1
         {
             Console.ForegroundColor = ConsoleColor.Green;
             GenerateWorm(3);
+            Dx = -1;
+            Dy = 0;
+        }
+
+        public void Move1()
+        {
+            Clear();
+            for (int i = list.Count - 1; i > 0; --i)
+            {
+                list[i].X = list[i - 1].X ;
+                list[i].Y = list[i - 1].Y;
+            }
+            list[0].X += Dx;
+            list[0].Y += Dy;
         }
         public void Move(int dx, int dy)
         {
