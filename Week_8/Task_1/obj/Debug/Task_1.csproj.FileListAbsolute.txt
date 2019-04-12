@@ -1,0 +1,10 @@
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\bin\Debug\Task_1.exe.config
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\bin\Debug\Task_1.exe
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\bin\Debug\Task_1.pdb
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\obj\Debug\Task_1.csprojAssemblyReference.cache
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\obj\Debug\Task_1.Form1.resources
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\obj\Debug\Task_1.Properties.Resources.resources
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\obj\Debug\Task_1.csproj.GenerateResource.cache
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\obj\Debug\Task_1.csproj.CoreCompileInputs.cache
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\obj\Debug\Task_1.exe
+C:\Users\Brother\Desktop\PP2\Week_8\Task_1\obj\Debug\Task_1.pdb
